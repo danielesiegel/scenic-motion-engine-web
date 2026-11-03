@@ -1,0 +1,40 @@
+name: Feature Request
+description: Propose a new feature or enhancement
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an idea. Please be concrete about the problem, the shape of the API, and what you considered instead. Note: this repo is the prototype — if the feature is engine- or motion-level, it probably also needs a matching proposal in the [Mac port](https://github.com/danielesiegel/scenic-motion-engine-mac).
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What problem does this solve? Who is affected? Why now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: api
+    attributes:
+      label: Proposed API / design
+      description: Sketch the public surface — types, functions, config keys, CLI flags. Code blocks welcome.
+      render: typescript
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you weigh? Why were they rejected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      description: Prior art, related issues, performance targets, migration implications, Mac-port parity.

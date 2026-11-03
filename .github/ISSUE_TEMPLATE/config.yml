@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions
+    url: https://github.com/danielesiegel/scenic-motion-engine-web/discussions
+    about: Ask questions, share ideas, and chat with the community in the Discussions tab.

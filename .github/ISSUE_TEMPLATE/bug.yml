@@ -1,0 +1,111 @@
+name: Bug Report
+description: Report a defect in scenic-motion-engine-web
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Please provide enough detail for a reliable repro.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: One-line description of the issue.
+      placeholder: "Preview stutters when scrubbing past 60s on dense tracks"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome (stable)
+        - Chrome (Canary / Dev)
+        - Arc
+        - Edge
+        - Firefox
+        - Safari
+        - Brave
+        - Other (specify in notes)
+    validations:
+      required: true
+
+  - type: input
+    id: browser_version
+    attributes:
+      label: Browser version
+      description: e.g. Chrome 131.0.6778.86, Arc 1.42
+      placeholder: "Chrome 131.0.6778.86"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      description: e.g. macOS 15.0 (Sequoia), Windows 11 23H2, Ubuntu 24.04
+      placeholder: "macOS 15.0"
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Node version
+      description: Output of `node --version`
+      placeholder: "v20.11.1"
+    validations:
+      required: true
+
+  - type: input
+    id: vite
+    attributes:
+      label: Vite version
+      description: Output of `npx vite --version` (or the version from `package-lock.json`)
+      placeholder: "vite/5.4.10"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Minimal, deterministic steps. Include commands and inputs.
+      placeholder: |
+        1. `npm run dev`
+        2. Load track X
+        3. Scrub to Y
+        4. Observe Z
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / console output
+      description: Paste relevant DevTools console output, stack traces, or Vite dev-server errors.
+      render: shell
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else — screenshots, workarounds, suspected cause.
