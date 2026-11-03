@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scenicsynths</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        color: #ddd;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        overflow: hidden;
+      }
+      #app {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        grid-template-rows: 1fr auto;
+      }
+      #stage {
+        position: relative;
+        overflow: hidden;
+        background: #000;
+      }
+      #stage canvas {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      #hud {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-size: 11px;
+        line-height: 1.4;
+        background: rgba(0,0,0,0.6);
+        padding: 6px 8px;
+        border-radius: 4px;
+        pointer-events: none;
+        white-space: pre;
+        display: none;
+      }
+      #hud.on { display: block; }
+      #controls {
+        padding: 8px;
+        background: #111;
+        border-top: 1px solid #222;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 12px;
+      }
+      #controls button {
+        background: #222;
+        color: #ddd;
+        border: 1px solid #333;
+        padding: 4px 10px;
+        cursor: pointer;
+        font: inherit;
+      }
+      #controls button:hover { background: #2a2a2a; }
+      #scrub { flex: 1; }
+      #pane {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 320px;
+        max-height: 100vh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding-bottom: 24px;
+        box-sizing: border-box;
+        scrollbar-width: thin;
+      }
+      #pane::-webkit-scrollbar { width: 8px; }
+      #pane::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+      #pane::-webkit-scrollbar-track { background: transparent; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="stage">
+        <canvas id="canvas"></canvas>
+        <div id="hud"></div>
+      </div>
+      <div id="controls">
+        <button id="btn-play">play</button>
+        <button id="btn-still">still</button>
+        <button id="btn-hud">hud</button>
+        <input id="scrub" type="range" min="0" max="1000" value="0" step="1" />
+        <span id="time">0.00s</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
